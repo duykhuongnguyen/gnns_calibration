@@ -40,6 +40,9 @@ def load_and_save_data(seq_len=12, output_dir='data'):
         y[num_train: num_train + num_val],
     )
     X_test, y_test = X[-num_test:], y[-num_test:]
+    print(np.linalg.norm(X_test[:, :4] - y_test[:, :4]) / num_test)
+    # print(np.linalg.norm(X_test[:, :4] - y_test[:, :4], ord=1))
+    exit()
 
     for cat in ['train', 'val', 'test']:
         _x, _y = locals()["X_" + cat], locals()["y_" + cat]
